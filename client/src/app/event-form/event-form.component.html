@@ -1,0 +1,51 @@
+<!-- Event Form -->
+<h2 class="display-2 my-3">New event</h2>
+
+<form action="" novalidate>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      class="form-control is-invalid"
+      id="title"
+      placeholder="Title"
+      required
+    />
+    <div class="invalid-feedback">Please provide a title!</div>
+  </div>
+  <div class="form-group">
+    <label for="note">Note</label>
+    <textarea
+      class="form-control"
+      id="note"
+      rows="5"
+      required
+    ></textarea>
+    <div class="invalid-feedback">Please provide a some notes her!</div>
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input
+      type="text"
+      class="form-control"
+      id="location"
+      placeholder="location"
+      required
+    />
+    <div class="invalid-feedback">Please provide a Location!</div>
+  </div>
+  <div class="form-group">
+    <label for="DateOfEvent">Event</label>
+    <select class="form-control" id="status" required>
+      <option value="EVENT1">EVENT1</option>
+      <option value="EVENT2">EVENT2</option>
+      <option value="EVENT3">EVENT3</option>
+      <option value="EVENT4">EVENT4</option>
+      <option value="EVENT5">EVENT5</option>
+      <option value="EVENT6">EVENT6</option>
+    </select>
+    <div class="invalid-feedback">Please provide a status!</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
