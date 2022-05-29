@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreEventRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreEventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,12 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=> 'required',
+            'note' =>  'nullable',
+            'location' => 'nullable',
+            'DateOfEvent' => ['required',
+                              Rule::in(['EVENT1','EVENT2','EVENT3','EVENT4','EVENT5','EVENT6']),
+                             ]
         ];
     }
 }

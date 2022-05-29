@@ -15,18 +15,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return Event::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +28,8 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        // dd($request->validated());
+        return Event::create($request->validated());
     }
 
     /**
@@ -47,18 +40,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
+        return $event;  // implement endpoint
     }
 
     /**
@@ -70,7 +52,8 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        $event ->update($request->validated());
+        return $event;
     }
 
     /**
@@ -81,6 +64,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return response()->json(null,204);
     }
 }
