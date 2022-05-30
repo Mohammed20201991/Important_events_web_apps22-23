@@ -3,25 +3,26 @@
 <h2 class="display-2 my-3">Details</h2>
 <dl class="row">
   <dt class="col-sm-3">DateOfEvent</dt>
-  <dd class="col-sm-9"><span class="badge badge-danger">Event1</span></dd>
+  <dd class="col-sm-9"><span class="badge badge-danger">{{ event.DateOfEvent }}</span></dd>
 
   <dt class="col-sm-3">Title</dt>
-  <dd class="col-sm-9">Important Event</dd>
+  <dd class="col-sm-9">{{ event.title }}</dd>
 
   <dt class="col-sm-3">Location</dt>
-  <dd class="col-sm-9">BGH-99</dd>
+  <dd class="col-sm-9">{{ event.location }}</dd>
 
   <dt class="col-sm-3">Date</dt>
   <dd class="col-sm-9">2022-05-29.</dd>
 
   <dt class="col-sm-3">Notes</dt>
-  <dd class="col-sm-9">Some notes her </dd>
+  <dd class="col-sm-9">{{ event.note }} </dd>
 
   <dt class="col-sm-3">User</dt>
   <dd class="col-sm-9">Al-Hitawi Mohammed</dd>
 </dl>
 <p>
-  <a class="btn btn-primary" href="#" role="button">Edit</a>
-  <a class="btn btn-outline-danger" href="#" role="button">Delete</a>
+  <a class="btn btn-primary" [routerLink]="['/events', event.id, 'edit']" role="button">Edit</a>
+  <!-- <a class="btn btn-outline-danger" href="#" role="button">Delete</a> -->
+  <button (click)="handleDelete()" class="btn btn-outline-danger" role="button">Delete</button>
 </p>
 

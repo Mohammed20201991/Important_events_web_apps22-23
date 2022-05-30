@@ -12,6 +12,7 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { AboutComponent } from './about/about.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventFilterComponent } from './event-filter/event-filter.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { EventFilterComponent } from './event-filter/event-filter.component';
     EventFormComponent,
     AboutComponent,
     EventFilterComponent,
+    EventEditComponent,
 
   ],
   imports: [

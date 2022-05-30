@@ -1,19 +1,22 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../event';
 import { EventService } from '../event.service';
 
 @Component({
-  selector: 'app-event-detail',
-  templateUrl: './event-detail.component.html',
-  styleUrls: ['./event-detail.component.css']
+  selector: 'app-event-edit',
+  templateUrl: './event-edit.component.html',
+  styleUrls: ['./event-edit.component.css']
 })
-export class EventDetailComponent implements OnInit {
+export class EventEditComponent implements OnInit {
+
   event = new Event();
   constructor(
     private route: ActivatedRoute,
     private eventService: EventService,
-    private router: Router,
+    private location: Location,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -29,12 +32,17 @@ export class EventDetailComponent implements OnInit {
         this.event = event;
       }
     }
+}
+handleSave(event: Event) {
+// console.log(event);
+// Object.assign(this.event, event); // we do not need in this way we want to crate method for this
 
+  if (this.event.id) {
+    this.eventService.updateEvent(this.event.id, event);  //this.event
+    this.location.back();
+  } else {
+    this.eventService.addEvent(event);
+    this.router.navigate(['/events']);
   }
-
-  handleDelete(){
-    this.eventService.deleteEvent(this.event.id);
-    this.router.navigate(['/events']);   // navigate back
-  }
-
+}
 }
