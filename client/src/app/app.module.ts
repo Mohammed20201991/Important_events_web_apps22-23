@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EventFormComponent } from './event-form/event-form.component';
     NavBarComponent,
     EventListComponent,
     EventDetailComponent,
-    EventFormComponent
+    EventFormComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

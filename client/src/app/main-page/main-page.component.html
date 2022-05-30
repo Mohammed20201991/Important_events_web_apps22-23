@@ -1,9 +1,11 @@
 <!-- main page -->
 <div class="jumbotron">
   <div class="container">
-    <h1 class="display-4">Event tracker</h1>
+    <!-- show dynmiclly -->
+    <h1 class="display-4">{{ title }}</h1>
+
     <p class="lead">Submit events and track them!</p>
-    <p><a class="btn btn-primary" href="#" role="button">New event</a></p>
+    <p><a class="btn btn-primary" routerLink="/events/new" role="button">New event</a></p>
   </div>
 </div>
 
