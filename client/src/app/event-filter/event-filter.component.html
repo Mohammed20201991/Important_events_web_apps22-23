@@ -1,0 +1,28 @@
+
+<div [(ngModel)]="DateOfEvent"
+    (change)="handleDateOfEventChange()"
+    class="btn-group btn-group-toggle"
+    ngbRadioGroup name="radioBasic">
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="ALL" > ALL
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT1" > EVENT1
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT2"> EVENT2
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT3"> EVENT3
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT4"> EVENT4
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT5"> EVENT5
+  </label>
+  <label ngbButtonLabel class="btn-primary mr-2">
+    <input ngbButton type="radio" value="EVENT6"> EVENT6
+  </label>
+</div>
+{{ DateOfEvent }}

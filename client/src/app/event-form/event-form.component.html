@@ -1,10 +1,12 @@
 <!-- Event Form -->
-<h2 class="display-2 my-3">New event</h2>
-
-<form action="" novalidate>
+<!-- <h2 class="display-2 my-3">New event</h2> -->
+{{ event | json }}
+{{eventForm.value | json}}
+<form [formGroup]="eventForm">
   <div class="form-group">
     <label for="title">Title</label>
     <input
+      formControlName="title"
       type="text"
       class="form-control is-invalid"
       id="title"
@@ -16,6 +18,7 @@
   <div class="form-group">
     <label for="note">Note</label>
     <textarea
+      formControlName="note"
       class="form-control"
       id="note"
       rows="5"
@@ -26,6 +29,7 @@
   <div class="form-group">
     <label for="location">Location</label>
     <input
+      formControlName="location"
       type="text"
       class="form-control"
       id="location"
@@ -36,7 +40,7 @@
   </div>
   <div class="form-group">
     <label for="DateOfEvent">Event</label>
-    <select class="form-control" id="status" required>
+    <select formControlName="DateOfEvent" class="form-control" id="DateOfEvent" required>
       <option value="EVENT1">EVENT1</option>
       <option value="EVENT2">EVENT2</option>
       <option value="EVENT3">EVENT3</option>

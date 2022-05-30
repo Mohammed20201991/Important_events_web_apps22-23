@@ -1,121 +1,157 @@
 <!-- Event List -->
 <h2 class="display-2 my-3">My events</h2>
 <p><a class="btn btn-primary" routerLink="/events/new" role="button">New event</a></p>
-<div class="list-group">
-  <a
-    routerLink="/events/1"
-    class="list-group-item list-group-item-action list-group-item-danger"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-danger">Event1</span>
-    </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
 
-  <a
-    routerLink="/events/2"
-    class="list-group-item list-group-item-action list-group-item-warning"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-warning">Event2</span>
-    </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
+<div class="row">
+  <div class="col">
+    <app-event-filter
+    [DateOfEvent]="DateOfEvent"
+    (DateOfEventChange)="handleDateOfEventChange($event)">
+    </app-event-filter>
 
-  <a
-    routerLink="/events/3"
-    class="list-group-item list-group-item-action list-group-item-success"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-success">Event3</span>
+    <div class="list-group">
+      <!-- *ngFor="let event of events" -->
+      <a
+        *ngFor="let event of filteredEvents"
+        (click)="selectedEvent=event"
+        class="list-group-item list-group-item-action"
+        [class.list-group-item-danger]="event.DateOfEvent === 'EVENT1'"
+        [class.list-group-item-warning]="event.DateOfEvent === 'EVENT2'"
+        [class.list-group-item-light]="event.DateOfEvent === 'EVENT3'"
+        [class.list-group-item-info]="event.DateOfEvent === 'EVENT4'"
+        [class.list-group-item-dark]="event.DateOfEvent === 'EVENT5'"
+        [class.list-group-item-danger]= "event.DateOfEvent === 'EVENT6'"
+      >
+      <!-- routerLink="/events/1" -->
+
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">{{ event.title }}</h5>
+          <span class="badge"
+          [class.badge-danger]= "event.DateOfEvent === 'EVENT1'"
+          [class.badge-warning]="event.DateOfEvent === 'EVENT2'"
+          [class.badge-light]=  "event.DateOfEvent === 'EVENT3'"
+          [class.badge-info]=   "event.DateOfEvent === 'EVENT4'"
+          [class.badge-dark]=   "event.DateOfEvent === 'EVENT5'"
+          [class.badge-danger]= "event.DateOfEvent === 'EVENT6'"
+          >
+           {{ event.DateOfEvent }} <span>Edit link later</span> </span>
+        </div>
+        <p class="mb-1">
+          {{event.note}}.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> {{ event.location }}
+          <i class="fas fa-calendar-alt"></i> 2022-30-05.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a>
+
+      <!-- <a
+        routerLink="/events/2"
+        class="list-group-item list-group-item-action list-group-item-warning"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">Important Event</h5>
+          <span class="badge badge-warning">Event2</span>
+        </div>
+        <p class="mb-1">
+          Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+          risus varius blandit.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> PC1
+          <i class="fas fa-calendar-alt"></i> 2019.01.01.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a>
+
+      <a
+        routerLink="/events/3"
+        class="list-group-item list-group-item-action list-group-item-success"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">Important Event</h5>
+          <span class="badge badge-success">Event3</span>
+        </div>
+        <p class="mb-1">
+          Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+          risus varius blandit.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> PC1
+          <i class="fas fa-calendar-alt"></i> 2019.01.01.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a>
+      <a
+        routerLink="/events/4"
+        class="list-group-item list-group-item-action list-group-item-warning"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">Important Event</h5>
+          <span class="badge badge-success">Event4</span>
+        </div>
+        <p class="mb-1">
+          Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+          risus varius blandit.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> PC1
+          <i class="fas fa-calendar-alt"></i> 2019.01.01.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a>
+      <a
+        routerLink="/events/5"
+        class="list-group-item list-group-item-action list-group-item-success"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">Important Event</h5>
+          <span class="badge badge-success">Event5</span>
+        </div>
+        <p class="mb-1">
+          Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+          risus varius blandit.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> PC1
+          <i class="fas fa-calendar-alt"></i> 2019.01.01.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a>
+      <a
+        routerLink="/events/6"
+        class="list-group-item list-group-item-action list-group-item-success"
+      >
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <h5 class="mb-1">Important Event</h5>
+          <span class="badge badge-success">Event6</span>
+        </div>
+        <p class="mb-1">
+          Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+          risus varius blandit.
+        </p>
+        <small>
+          <i class="fas fa-map-marker-alt"></i> PC1
+          <i class="fas fa-calendar-alt"></i> 2019.01.01.
+          <i class="fas fa-comment"></i>
+          <span class="badge badge-light badge-pill">3</span>
+        </small>
+      </a> -->
+
     </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
-  <a
-    routerLink="/events/4"
-    class="list-group-item list-group-item-action list-group-item-warning"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-success">Event4</span>
-    </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
-  <a
-    routerLink="/events/5"
-    class="list-group-item list-group-item-action list-group-item-success"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-success">Event5</span>
-    </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
-  <a
-    routerLink="/events/6"
-    class="list-group-item list-group-item-action list-group-item-success"
-  >
-    <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">Important Event</h5>
-      <span class="badge badge-success">Event6</span>
-    </div>
-    <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-      risus varius blandit.
-    </p>
-    <small>
-      <i class="fas fa-map-marker-alt"></i> PC1
-      <i class="fas fa-calendar-alt"></i> 2019.01.01.
-      <i class="fas fa-comment"></i>
-      <span class="badge badge-light badge-pill">3</span>
-    </small>
-  </a>
+    {{ selectedEvent | json}}
+  </div>
+  <div *ngIf="selectedEvent" class="col">
+    <!-- the parent is event-list -->
+    <!-- Child -->
+    <app-event-form [event]="selectedEvent"></app-event-form>
+  </div>
+
 </div>
+

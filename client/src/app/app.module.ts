@@ -10,6 +10,8 @@ import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { AboutComponent } from './about/about.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventFilterComponent } from './event-filter/event-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,16 @@ import { AboutComponent } from './about/about.component';
     EventListComponent,
     EventDetailComponent,
     EventFormComponent,
-    AboutComponent
+    AboutComponent,
+    EventFilterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
