@@ -13,7 +13,8 @@ import { AboutComponent } from './about/about.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventFilterComponent } from './event-filter/event-filter.component';
 import { EventEditComponent } from './event-edit/event-edit.component';
-
+// Physical import
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +27,17 @@ import { EventEditComponent } from './event-edit/event-edit.component';
     EventFilterComponent,
     EventEditComponent,
 
+
   ],
+
+  // Logically import
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

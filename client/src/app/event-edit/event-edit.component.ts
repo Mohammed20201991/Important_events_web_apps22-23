@@ -19,29 +19,29 @@ export class EventEditComponent implements OnInit {
     private router: Router
     ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     // read url
     const urlId = this.route.snapshot.paramMap.get('id');
     console.log(urlId);
     console.log(typeof urlId);
     if (urlId) {
       const id = parseInt(urlId);  //convert string to integer
-      const event = this.eventService.getEvent(id);
+      const event = await this.eventService.getEvent(id);
       //  if not null
       if (event) {
         this.event = event;
       }
     }
 }
-handleSave(event: Event) {
+async handleSave(event: Event) {
 // console.log(event);
 // Object.assign(this.event, event); // we do not need in this way we want to crate method for this
 
   if (this.event.id) {
-    this.eventService.updateEvent(this.event.id, event);  //this.event
+    await this.eventService.updateEvent(this.event.id, event);  //this.event
     this.location.back();
   } else {
-    this.eventService.addEvent(event);
+    await this.eventService.addEvent(event);
     this.router.navigate(['/events']);
   }
 }

@@ -15,8 +15,8 @@ export class EventListComponent implements OnInit {
   public selectedEvent:Event | null = null;
   constructor(private eventService: EventService ) { }
 
-  ngOnInit(): void {
-    this.events = this.eventService.getEvents(); //I will load events from event service
+  async ngOnInit(){
+    this.events = await this.eventService.getEvents(); //I will load events from event service
     this.filterEvent();
   }
 

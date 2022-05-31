@@ -1,5 +1,14 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { Event } from './event';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+     Accept: 'XMLHttpRequest',
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -12,31 +21,28 @@ export class EventService {
     { id: 5, title: 'event5', note: 'note5', location: 'location5', DateOfEvent: 'EVENT5' },
     { id: 6, title: 'event6', note: 'note6', location: 'location6', DateOfEvent: 'EVENT6' },
   ];
+  private eventsUrl = 'http://localhost:8000/api/events';
+  constructor(private http: HttpClient) {}
 
-  getEvents(){
-    return this.events;
+  async getEvents(){
+    return await lastValueFrom(this.http.get<Event[]>(this.eventsUrl));
+    }
+
+  async getEvent(id: number) {
+    return await lastValueFrom(this.http.get<Event>(`${this.eventsUrl}/${id}`));
   }
 
-  getEvent(id: number) {
-    return this.events.find((event) => event.id === id);
+  async updateEvent(id: number, modifiedEvent: Event) {
+    return await lastValueFrom(this.http.patch<Event>(`${this.eventsUrl}/${id}`, modifiedEvent, httpOptions));
+      }
+  async addEvent(newEvent: Event) {
+    return await lastValueFrom(this.http.post<Event>(this.eventsUrl, newEvent, httpOptions));
   }
 
-  updateEvent(id: number, modifiedEvent: Event) {
-    const event = this.getEvent(id);
-    Object.assign(event, modifiedEvent);
-    return event;
-  }
-
-  addEvent(newEvent: Event) {
-    const id = this.events.length + 1;
-    newEvent.id = id;
-    this.events.push(newEvent);
-    return newEvent;
-  }
-
-  deleteEvent(id: number) {
+  async deleteEvent(id: number) {
     // const pos = this.events.findIndex((event) => event.id === id);
     // this.events.splice(pos, 1); // deleting
-    this.events = this.events.filter((event) => event.id !== id);
+    // this.events = this.events.filter((event) => event.id !== id);
+    return await lastValueFrom(this.http.delete<null>(`${this.eventsUrl}/${id}`, httpOptions));
   }
 }

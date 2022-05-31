@@ -16,14 +16,14 @@ export class EventDetailComponent implements OnInit {
     private router: Router,
     ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     // read url
     const urlId = this.route.snapshot.paramMap.get('id');
     console.log(urlId);
     console.log(typeof urlId);
     if (urlId) {
       const id = parseInt(urlId);  //convert string to integer
-      const event = this.eventService.getEvent(id);
+      const event = await this.eventService.getEvent(id);
       //  if not null
       if (event) {
         this.event = event;
@@ -32,8 +32,8 @@ export class EventDetailComponent implements OnInit {
 
   }
 
-  handleDelete(){
-    this.eventService.deleteEvent(this.event.id);
+  async handleDelete(){
+    await this.eventService.deleteEvent(this.event.id);
     this.router.navigate(['/events']);   // navigate back
   }
 
