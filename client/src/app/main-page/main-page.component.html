@@ -1,11 +1,26 @@
 <!-- main page -->
 <div class="jumbotron">
   <div  *ngFor="let item of events_array" class="container">
-    <!-- show dynmiclly -->
-    <h1 class="display-4">{{ introduction }}</h1>
+    <!-- show dynmic-->
+    <h1 class="display-6">{{ introduction }}</h1>
 
 
-    <p> Number of Events {{ number_of_events }}</p>
+    <!-- <p> Number of Events {{ number_of_events }}</p> -->
+
+      <div class="ticker">
+        <div class="title">
+          <h5>Number of Events</h5>
+        </div> <div class="news">
+          <marquee class="news-content">
+            <p>We have {{ number_of_events }} Important Events </p>
+            <p>The Earliest Event Will be at  latest  {{ earliest_event }} </p>
+            <p>The Latest Event Will be at  {{ latest_event }}  </p>
+            <p>Fell free to choice any one you are interested from events bellow  </p>
+          </marquee>
+        </div>
+      </div>
+      <!-- last elements of array {{ events[events. length - 1] }}
+      first element of array {{ events[0] }} -->
     <!-- <p> {{ events}}</p> -->
     <!-- <p><a class="btn btn-primary" routerLink="/events/new" role="button">New event</a></p> -->
     <div class="row">
@@ -33,7 +48,6 @@
       </div>
 
     </div>
-
 
   </div>
 </div>

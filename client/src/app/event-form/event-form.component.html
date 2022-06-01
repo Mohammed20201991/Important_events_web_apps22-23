@@ -44,7 +44,7 @@
       [class.is-invalid]="location.invalid && (location.dirty || location.touched)"
       [class.is-valid]="location.valid"
     />
-    <!-- pattern="BGH\d+"   --> 31/5/22
+    <!-- pattern="BGH\d+"   -->
     <div class="invalid-feedback" *ngIf="location.invalid && location.errors?.['required']">
       Please provide an event  Location!
     </div>
@@ -63,12 +63,12 @@
             [class.is-invalid]="DateOfEvent.invalid && (DateOfEvent.dirty || DateOfEvent.touched)"
             [class.is-valid]="DateOfEvent.valid"
       >
-      <option value="EVENT1">EVENT1</option>
-      <option value="EVENT2">EVENT2</option>
-      <option value="EVENT3">EVENT3</option>
-      <option value="EVENT4">EVENT4</option>
-      <option value="EVENT5">EVENT5</option>
-      <option value="EVENT6">EVENT6</option>
+      <option value="12-06-2017">12-06-2017</option>
+      <option value="17-10-2017">17-06-2017</option>
+      <option value="02-09-2017">02-09-2017</option>
+      <option value="10-11-2017">10-11-2017</option>
+      <option value="01-01-2018">01-01-2018</option>
+      <option value="05-01-2018">05-01-2018</option>
     </select>
     <div class="invalid-feedback">Please provide a status!</div>
   </div>

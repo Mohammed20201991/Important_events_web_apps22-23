@@ -32,9 +32,9 @@ export class EventDetailComponent implements OnInit {
 
   }
 
-  async handleDelete(){
-    await this.eventService.deleteEvent(this.event.id);
-    this.router.navigate(['/events']);   // navigate back
-  }
+  // async handleDelete(){
+  //   await this.eventService.deleteEvent(this.event.id);
+  //   this.router.navigate(['/events']);   // navigate back
+  // }
 
 }

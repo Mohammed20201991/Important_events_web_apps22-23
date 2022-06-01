@@ -1,6 +1,6 @@
 <!-- Event List -->
-<h2 class="display-2 my-3">My events</h2>
-<p><a class="btn btn-primary" routerLink="/events/new" role="button">New event</a></p>
+<h2 class="display-2 my-3">Find Our events</h2>
+<p><a class="btn btn-info" routerLink="/events/new" role="button">Add New event</a></p>
 
 <div class="row">
   <div class="col">
@@ -15,12 +15,12 @@
         *ngFor="let event of filteredEvents"
         (click)="selectedEvent=event"
         class="list-group-item list-group-item-action"
-        [class.list-group-item-danger]="event.DateOfEvent === 'EVENT1'"
-        [class.list-group-item-warning]="event.DateOfEvent === 'EVENT2'"
-        [class.list-group-item-light]="event.DateOfEvent === 'EVENT3'"
-        [class.list-group-item-info]="event.DateOfEvent === 'EVENT4'"
-        [class.list-group-item-dark]="event.DateOfEvent === 'EVENT5'"
-        [class.list-group-item-danger]= "event.DateOfEvent === 'EVENT6'"
+        [class.list-group-item-danger]= "event.DateOfEvent === '12-06-2017'"
+        [class.list-group-item-warning]= "event.DateOfEvent === '17-10-2017'"
+        [class.list-group-item-light]= "event.DateOfEvent === '02-09-2017'"
+        [class.list-group-item-info]= "event.DateOfEvent === '10-11-2017'"
+        [class.list-group-item-dark]= "event.DateOfEvent === '01-01-2018'"
+        [class.list-group-item-danger]= "event.DateOfEvent === '05-01-2018'"
         [routerLink]="['/events', event.id]"
       >
       <!-- routerLink="/events/1" -->
@@ -29,16 +29,16 @@
         <div class="d-flex w-100 justify-content-between align-items-center">
           <h5 class="mb-1">{{ event.title }}</h5>
           <span class="badge"
-          [class.badge-danger]= "event.DateOfEvent === 'EVENT1'"
-          [class.badge-warning]= "event.DateOfEvent === 'EVENT2'"
-          [class.badge-light]=  "event.DateOfEvent === 'EVENT3'"
-          [class.badge-info]=   "event.DateOfEvent === 'EVENT4'"
-          [class.badge-dark]=   "event.DateOfEvent === 'EVENT5'"
-          [class.badge-danger]= "event.DateOfEvent === 'EVENT6'"
+          [class.badge-danger]= "event.DateOfEvent === '12-06-2017'"
+          [class.badge-warning]= "event.DateOfEvent === '17-10-2017'"
+          [class.badge-light]=  "event.DateOfEvent === '02-09-2017'"
+          [class.badge-info]=   "event.DateOfEvent === '10-11-2017'"
+          [class.badge-dark]=   "event.DateOfEvent === '01-01-2018'"
+          [class.badge-danger]= "event.DateOfEvent === '05-01-2018'"
           >
             <span>{{ event.DateOfEvent }}
              <div>
-<a class="btn btn-primary" [routerLink]="['/events', event.id, 'edit']" role="button">Edit</a>
+<a class="btn btn-primary btn-sm" [routerLink]="['/events', event.id, 'edit']" role="button">Edit</a>
              </div></span> </span>
         </div>
         <p class="mb-1">
@@ -46,9 +46,8 @@
         </p>
         <small>
           <i class="fas fa-map-marker-alt"></i> {{ event.location }}
-          <i class="fas fa-calendar-alt"></i> 2022-30-05.
-          <i class="fas fa-comment"></i>
-          <span class="badge badge-light badge-pill">3</span>
+          <i class="fas fa-calendar-alt"></i>   {{ event.DateOfEvent }}.
+          <!-- <span class="badge badge-light badge-pill">3</span> -->
         </small>
       </a>
 
@@ -61,5 +60,7 @@
     <!-- Child -->
     <app-event-form [event]="selectedEvent" (save)="handleSave($event)"></app-event-form>
   </div>
+ <!-- last elements of array {{ events[events. length - 1] }}
+first element of array {{ events[0] }} -->
 </div>
 

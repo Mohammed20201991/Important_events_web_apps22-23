@@ -41,7 +41,7 @@ export class EventService {
 
   //  it is not required in our task but I see it will be nice to have
   // compete CRUD
-  async deleteEvent(id: number) {
-    return await lastValueFrom(this.http.delete<null>(`${this.eventsUrl}/${id}`, httpOptions));
-  }
+  // async deleteEvent(id: number) {
+  //   return await lastValueFrom(this.http.delete<null>(`${this.eventsUrl}/${id}`, httpOptions));
+  // }
 }

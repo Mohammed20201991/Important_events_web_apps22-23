@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('note')->nullable();
             $table->string('location')->nullable();
-            $table->enum('DateOfEvent',['EVENT1','EVENT2','EVENT3','EVENT4','EVENT5','EVENT6']);
-
+            // $table->enum('DateOfEvent',['EVENT1','EVENT2','EVENT3','EVENT4','EVENT5','EVENT6']);
+            $table->string('DateOfEvent')->default('12-06-2017');
             $table->timestamps();
         });
     }
