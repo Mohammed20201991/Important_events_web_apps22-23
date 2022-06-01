@@ -1,6 +1,8 @@
 
-<!-- event details -->
-<h2 class="display-2 my-3">Details</h2>
+<div class="row">
+  <div class="col">
+    <!-- event details -->
+<h5 class="display-2 mt-5 my-3">Details of the Event </h5>
 <dl class="row">
   <dt class="col-sm-3">DateOfEvent</dt>
   <dd class="col-sm-9"><span class="badge badge-danger">{{ event.DateOfEvent }}</span></dd>
@@ -11,18 +13,19 @@
   <dt class="col-sm-3">Location</dt>
   <dd class="col-sm-9">{{ event.location }}</dd>
 
-  <dt class="col-sm-3">Date</dt>
-  <dd class="col-sm-9">2022-05-29.</dd>
-
   <dt class="col-sm-3">Notes</dt>
   <dd class="col-sm-9">{{ event.note }} </dd>
-
-  <dt class="col-sm-3">User</dt>
-  <dd class="col-sm-9">Al-Hitawi Mohammed</dd>
 </dl>
 <p>
   <a class="btn btn-primary" [routerLink]="['/events', event.id, 'edit']" role="button">Edit</a>
   <!-- <a class="btn btn-outline-danger" href="#" role="button">Delete</a> -->
-  <button (click)="handleDelete()" class="btn btn-outline-danger" role="button">Delete</button>
+  <!-- <button (click)="handleDelete()" class="btn btn-outline-danger" role="button">Delete</button> -->
 </p>
+  </div>
+  <div class="col">
+    <br><br><br>
+    <h4 class="text-center mt-10" >nn</h4>
+    <img  src="https://www.am.ai/static/f12051df6c1e1a8d9f8830d440ad3708/8c557/2022%20AI%20Conferences%20w%20Logos%20Blue.png" class="img-fluid" alt="Responsive image"> </div>
+
+</div>
 

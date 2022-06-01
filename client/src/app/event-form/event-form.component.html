@@ -1,7 +1,7 @@
 <!-- Event Form -->
 <!-- <h2 class="display-2 my-3">New event</h2> -->
-{{ event | json }}
-{{eventForm.value | json}}
+<!-- {{ event | json }}
+{{eventForm.value | json}} -->
 <form [formGroup]="eventForm" (ngSubmit)="handleSubmit()">
   <div class="form-group">
     <label for="title">Title</label>
@@ -40,17 +40,17 @@
       id="location"
       placeholder="location"
       required
-      pattern="BGH\d+"
+
       [class.is-invalid]="location.invalid && (location.dirty || location.touched)"
       [class.is-valid]="location.valid"
     />
-
+    <!-- pattern="BGH\d+"   --> 31/5/22
     <div class="invalid-feedback" *ngIf="location.invalid && location.errors?.['required']">
       Please provide an event  Location!
     </div>
-    <div class="invalid-feedback" *ngIf="location.invalid && location.errors?.['pattern']">
+    <!-- <div class="invalid-feedback" *ngIf="location.invalid && location.errors?.['pattern']">
       Location  must start with BGH...!
-    </div>
+    </div> -->
 
     <!-- <div class="invalid-feedback">Please provide a Location!<br>note here are pattern (BGH FOLLOWED BY 3 DIGITS)</div> -->
   </div>

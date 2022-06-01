@@ -39,10 +39,9 @@ export class EventService {
     return await lastValueFrom(this.http.post<Event>(this.eventsUrl, newEvent, httpOptions));
   }
 
+  //  it is not required in our task but I see it will be nice to have
+  // compete CRUD
   async deleteEvent(id: number) {
-    // const pos = this.events.findIndex((event) => event.id === id);
-    // this.events.splice(pos, 1); // deleting
-    // this.events = this.events.filter((event) => event.id !== id);
     return await lastValueFrom(this.http.delete<null>(`${this.eventsUrl}/${id}`, httpOptions));
   }
 }

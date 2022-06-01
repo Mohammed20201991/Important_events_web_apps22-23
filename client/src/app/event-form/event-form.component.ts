@@ -14,8 +14,8 @@ export class EventFormComponent implements OnInit {
     // default values for this data structure
     title: ['',[Validators.required]],
     note: ['',[Validators.required]],
-    location: ['',[Validators.required, Validators.pattern(/^BGH\d+/)]],
-    // location: ['',[Validators.required]],
+    // location: ['',[Validators.required, Validators.pattern(/^BGH\d+/)]],
+    location: ['',[Validators.required]],
     DateOfEvent:['',[Validators.required]],
   });
 

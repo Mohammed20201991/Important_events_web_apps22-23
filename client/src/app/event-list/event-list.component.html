@@ -36,7 +36,7 @@
           [class.badge-dark]=   "event.DateOfEvent === 'EVENT5'"
           [class.badge-danger]= "event.DateOfEvent === 'EVENT6'"
           >
-           {{ event.DateOfEvent }} <span>
+            <span>{{ event.DateOfEvent }}
              <div>
 <a class="btn btn-primary" [routerLink]="['/events', event.id, 'edit']" role="button">Edit</a>
              </div></span> </span>
@@ -53,7 +53,7 @@
       </a>
 
      </div>
-    {{ selectedEvent | json}}
+    <!-- {{ selectedEvent | json}} -->
   </div>
 
   <div *ngIf="selectedEvent" class="col">

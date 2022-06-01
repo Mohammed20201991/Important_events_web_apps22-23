@@ -1,59 +1,52 @@
 
-<h2>Abou Me Page </h2>
-<h2>Auther Details</h2>
+
+
+
+<!-- about-section -->
+<div class="">
+
+  <h2>About Me Page </h2>
 
 <div *ngFor="let item of auther_items">
-  <h3> {{ item.name }}         </h3>
-  <h3> {{ item.neptun_id }}    </h3>
-  <h3> {{ item.email_address}} </h3>
-  <h3> {{ item.gitHub_link }}  </h3>
-</div>
+  <h4>I am {{ item.name }} </h4><h4> Student at <a href="https://www.elte.hu/en/">Eötvös Loránd University </a>- Facullty of Informatics -Artifical Intelligence department ,Which has  <a href="https://www.inf.elte.hu/en/content/elte-rising-in-the-impact-rankings.t.3726?fbclid=IwAR3j0bnGhl12TzU-rzCMCVrfdwI7qZefnTjCWhIG9DsB_5CUwJZsvMpbjFE">rank in THE</a></h4>
+  <h5>An employee at the Iraqi Ministery of Higher Education and Scientific research from 2016 till 2022.Training in Cairo - Egypt at Next Academy for two months I worked as a community health volunteer in a British organization(OXFAM) for 6 months . </h5>
 
-
-<div class="about-section">
-  <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
-</div>
-
-<h2 style="text-align:center">Our Team</h2>
 <div class="row">
   <div class="column">
     <div class="card">
       <img src="https://www.civronpharma.com/images/2018/03/17/sheer-about-center.jpg" alt="Jane" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p class="title"> {{ item.name }}  </p>
+
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="https://www.civronpharma.com/images/2018/03/17/sheer-about-center.jpg" alt="Mike" style="width:100%">
+      <img src="data:image/jpeg;base64,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" alt="Mike" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p class="title">{{ item.email_address}}</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="https://www.civronpharma.com/images/2018/03/17/sheer-about-center.jpg" alt="John" style="width:100%">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSveMB4ss3MS-GrD9P5LHn0rVT0ZYWgwdtgUA&usqp=CAU" alt="John" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p class="title">{{ item.neptun_id }}</p>
       </div>
     </div>
   </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="row"> Find Me ...
+  <a  class="nav-link" href="https://github.com/Mohammed20201991">My github Account  </a>
+  <a class="nav-link" href="https://www.linkedin.com/in/mohammed-al-hitawi-51075b240/">My linkedin Account </a>
 </div>
